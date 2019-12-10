@@ -1,0 +1,26 @@
+Name:		Shriram Suryawanshi
+B-Number:	B00734421
+Email:		ssuryaw1@binghamton.edu
+
+
+
+Implemetation - (as clarified by the professor)
+
+ 	The URLs are mapped base on SHORTNER_BASE provided while adding the URL.
+
+	For example, 	
+	
+		Command 1 - ./index.js  cs544.io mongodb://localhost:27017/urls add http://a.b.c/xx.html	- gives the shortened URL http://cs544.io/hxgy25
+		Command 2 - ./index.js  cs000.io mongodb://localhost:27017/urls add http://a.b.c/xx.html	- gives the shortened URL http://cs000.io/reru5m though the long URL is same, SHORTNER_BASE is different
+
+		This is applied to every other operation.
+
+		For query - ./index.js  cs000.io mongodb://localhost:27017/urls query http://cs000.io/reru5m	- increases the count for URL mapped for cs000.io and not for cs544.io
+
+		For count - ./index.js  cs000.io mongodb://localhost:27017/urls count http://a.b.c/xx.html	- this will return 1, as we have queried short URL of cs000.io
+   			    ./index.js  cs544.io mongodb://localhost:27017/urls count http://a.b.c/xx.html	- this will retrun 0, as we have not queried short URL of cs544.io
+
+		Same applied for deactivation as well, if we provide long URL for deactivation command, it will deactivate the short URL based on the SHORTNER_BASE provided with the command.
+
+
+	While, for clear operation, irrespective of the SHORTNER_BASE, the DB will be cleared.
